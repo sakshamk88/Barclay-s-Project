@@ -1,5 +1,9 @@
 package com.barclays.store.service;
 
-public interface UserService {
+import com.barclays.store.dto.CartDTO;
+import com.barclays.store.dto.CustomerDTO;
 
+public interface UserService {
+	CustomerDTO authenticateCustomer(String emailId, String password);
+	public void logoutCustomer();
 }
