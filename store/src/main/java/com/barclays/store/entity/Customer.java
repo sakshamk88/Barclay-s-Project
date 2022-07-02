@@ -1,5 +1,7 @@
 package com.barclays.store.entity;
 
+import lombok.Data;
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,6 +13,7 @@ import javax.persistence.OneToOne;
 
 
 @Entity
+@Data
 public class Customer {
 	@Id
 	private String emailId;
