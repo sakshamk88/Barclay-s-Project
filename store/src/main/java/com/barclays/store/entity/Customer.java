@@ -27,12 +27,21 @@ public class Customer {
 
 	
 	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="CUSTOMER_EMAIL_ID")
+	@JoinColumn(name="customer_id")
 	private Cart customerCart;
 
 	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="CUSTOMER_EMAIL_ID")
+	@JoinColumn(name="customer_id")
 	private List<Order> orders;
+
+	
+	public Integer getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
+	}
 
 	public String getEmailId() {
 		return emailId;

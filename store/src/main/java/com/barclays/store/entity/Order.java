@@ -23,7 +23,7 @@ public class Order {
 	private LocalDateTime dateOfOrder;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="PRODUCT_ID")
+	@JoinColumn(name="product_id")
 	private Product product;
 	
 	private Integer quantity;
