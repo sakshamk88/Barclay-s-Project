@@ -13,10 +13,10 @@ import java.util.Optional;
 
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
-    @Query(value="Select * from customer where email_id=:emailId",nativeQuery = true)
-    public Optional<CustomerDTO> findByEmailId(String emailId);
+    //@Query(value="Select * from customer where email_id=:emailId",nativeQuery = true)
+    public Optional<Customer> getByEmailId(String emailId);
 
-    @Query(value = "Select * from cart where cart_id=:cart_id",nativeQuery = true)
+    @Query(value = "Select * from cart where cart_id=:cartId",nativeQuery = true)
     public List<Cart> findByCartId(Integer cartId);
 
 

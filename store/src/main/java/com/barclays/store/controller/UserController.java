@@ -4,6 +4,7 @@ package com.barclays.store.controller;
 import com.barclays.store.dto.CartDTO;
 import com.barclays.store.dto.CustomerDTO;
 import com.barclays.store.entity.Cart;
+import com.barclays.store.entity.Customer;
 import com.barclays.store.exception.BarclaysException;
 import com.barclays.store.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,10 @@ public class UserController {
     UserServiceImpl userService;
 
     @GetMapping(value="/authenticateUser/{emailId}/{password}")
-    public ResponseEntity<CustomerDTO> authenticateCustomer(@PathVariable("emailId") String emailId,@PathVariable("password") String password) throws BarclaysException {
-        CustomerDTO customerDTO=userService.authenticateCustomer(emailId,password);
+    public ResponseEntity<Customer> authenticateCustomer(@PathVariable("emailId") String emailId,@PathVariable("password") String password) throws BarclaysException {
+        Customer customer=userService.authenticateCustomer(emailId,password);
 
-        return new ResponseEntity<>(customerDTO, HttpStatus.OK);
+        return new ResponseEntity<>(customer, HttpStatus.OK);
     }
 
     @GetMapping(value="/getCartDetails/{customerId}/{cartId}")

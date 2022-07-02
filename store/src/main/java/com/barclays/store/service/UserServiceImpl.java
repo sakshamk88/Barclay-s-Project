@@ -22,9 +22,9 @@ public class UserServiceImpl implements UserService
 
 
     @Override
-    public CustomerDTO authenticateCustomer(String emailId, String password) {
+    public Customer authenticateCustomer(String emailId, String password) {
         try {
-            Optional<CustomerDTO> customerDTOOptional = customerRepository.findByEmailId(emailId.toLowerCase());
+            Optional<Customer> customerDTOOptional = customerRepository.getByEmailId(emailId.toLowerCase());
             if (customerDTOOptional != null && customerDTOOptional.get().getPassword().equals(password)) {
                 return customerDTOOptional.get();
             } else {
@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService
 
     @Override
     public void addCustomer(String emailId, String name, String password, String phoneNumber) {
-        Optional<CustomerDTO> customer = customerRepository.findByEmailId((emailId));
+        Optional<Customer> customer = customerRepository.getByEmailId((emailId));
         try {
             if (customer.isPresent()) {
                 throw new BarclaysException("Customer already Exists");
