@@ -7,12 +7,14 @@ import com.barclays.store.entity.Customer;
 import com.barclays.store.exception.BarclaysException;
 import com.barclays.store.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 
+@Service
 public class UserServiceImpl implements UserService
 {
     @Autowired
@@ -51,5 +53,29 @@ public class UserServiceImpl implements UserService
             }
         }
         return null;
+    }
+
+    @Override
+    public void addCustomer(String emailId, String name, String password, String phoneNumber) {
+        Optional<CustomerDTO> customer = customerRepository.findByEmailId((emailId));
+        try {
+            if (customer.isPresent()) {
+                throw new BarclaysException("Customer already Exists");
+            }
+            else{
+                Customer customer1 = new Customer();
+                customer1.setEmailId(emailId);
+                customer1.setName(name);
+                customer1.setPassword(password);
+                customer1.setPhoneNumber(phoneNumber);
+                customerRepository.save(customer1);
+
+
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+        }
     }
 }

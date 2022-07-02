@@ -10,4 +10,5 @@ public interface UserService {
 	CustomerDTO authenticateCustomer(String emailId, String password);
 //	public void logoutCustomer();
 	List<Cart> getCartdetails(Integer customerId, Integer cartId);
+	void addCustomer(String emailId,String name,String password,String phoneNumber);
 }
