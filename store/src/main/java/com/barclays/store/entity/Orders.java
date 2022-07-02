@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Order {
+public class Orders {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -22,21 +22,15 @@ public class Order {
 	
 	private LocalDateTime dateOfOrder;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="product_id")
-	private Product product;
-	
 	private Integer quantity;
 	
 	private Double totalPrice;
 	
-	private String address;
+	private Integer addressId;
 	
 	private String orderStatus;
 
 	private String paymentThrough;
 	
 	private LocalDateTime dataOfDelivery;
-	
-	
 }

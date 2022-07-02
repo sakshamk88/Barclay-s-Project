@@ -13,7 +13,7 @@ public class Cart {
 	private Integer cartId;
 	
 	@OneToOne(cascade=CascadeType.DETACH)
-	@JoinColumn(name="PRODUCT_ID")
+	@JoinColumn(name="product_id")
 	private Product product;
 
 	private Integer quantity;

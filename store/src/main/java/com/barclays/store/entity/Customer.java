@@ -35,7 +35,7 @@ public class Customer {
 
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="customer_id")
-	private List<Order> orders;
+	private List<Orders> orders;
 
 	
 	public Integer getCustomerId() {
@@ -86,11 +86,11 @@ public class Customer {
 		this.customerCart = customerCart;
 	}
 
-	public List<Order> getOrders() {
+	public List<Orders> getOrders() {
 		return orders;
 	}
 
-	public void setOrders(List<Order> orders) {
+	public void setOrders(List<Orders> orders) {
 		this.orders = orders;
 	}
 	
