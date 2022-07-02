@@ -1,5 +1,6 @@
 package com.barclays.store.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,7 +35,12 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public List<ProductDTO> getAllProducts() {
 		// TODO Auto-generated method stub
-		return null;
+		List<Product> products = productRepository.findAll();
+		List<ProductDTO> productDtos = new ArrayList();
+		products.forEach(product -> {
+			productDtos.add(modelMapper.map(product, ProductDTO.class));
+		});
+		return productDtos;
 	}
 	
 }
