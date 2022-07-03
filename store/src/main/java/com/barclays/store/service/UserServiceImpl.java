@@ -34,9 +34,9 @@ public class UserServiceImpl implements UserService
         catch (Exception ex)
         {
             System.out.println(ex);
+            return null;
 
         }
-        return null;
     }
 
     @Override

@@ -7,7 +7,6 @@ import javax.persistence.*;
 @Entity
 @Data
 public class Cart {
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer cartId;
@@ -17,6 +16,9 @@ public class Cart {
 	private Product product;
 
 	private Integer quantity;
+
+
+//	private Integer customer_id;
 	
 	public Integer getCartId() {
 		return cartId;
