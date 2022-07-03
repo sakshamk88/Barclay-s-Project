@@ -24,8 +24,8 @@ public class StoreController
     }
 
     @GetMapping(value="/getStoreName")
-    public ResponseEntity<String> getNearestStore(@PathVariable("lat") Double lat,@PathVariable("lon") Double lon) throws BarclaysException {
-        String storeName=storeService.getMinimumDistance(lat,lon);
+    public ResponseEntity<String> getNearestStore(@PathVariable("lat") String lat,@PathVariable("lon") String lon) throws BarclaysException {
+        String storeName=storeService.getMinimumDistance(Double.parseDouble(lat),Double.parseDouble(lon));
         return new ResponseEntity<>(storeName, HttpStatus.OK);
     }
 
